@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:orientation="vertical"
-        android:background="#F4F3B4"
+        android:background="#489BD5"
         android:padding="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,56 +21,73 @@
 
             <ImageView
                 android:id="@+id/photo1"
-                android:layout_width="138dp"
-                android:layout_height="177dp"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
                 android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.071"
+                app:layout_constraintHorizontal_bias="0.103"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.039" />
 
             <ImageView
                 android:id="@+id/photo12"
-                android:layout_width="138dp"
-                android:layout_height="177dp"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
                 android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.928"
+                app:layout_constraintHorizontal_bias="0.924"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.434" />
+                app:layout_constraintVertical_bias="0.039" />
 
             <ImageView
                 android:id="@+id/photo13"
-                android:layout_width="138dp"
-                android:layout_height="177dp"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
                 android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.928"
+                app:layout_constraintHorizontal_bias="0.924"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.96" />
+                app:layout_constraintVertical_bias="0.534" />
+
+            <ImageView
+                android:id="@+id/photo4"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:adjustViewBounds="true"
+                android:background="#CCC"
+                android:onClick="selectImage"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="3:4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.103"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.534" />
+
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/large_5"/>
+                android:src="@drawable/large_4"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
