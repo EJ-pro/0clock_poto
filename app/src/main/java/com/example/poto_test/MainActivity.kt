@@ -33,23 +33,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<Button>(R.id.button6).setOnClickListener {
-            val intent = Intent(this, large_1::class.java)
+            val intent = Intent(this, standard_1::class.java)
             startActivity(intent)
         }
         findViewById<Button>(R.id.button7).setOnClickListener {
-            val intent = Intent(this, large_1::class.java)
+            val intent = Intent(this, standard_2::class.java)
             startActivity(intent)
         }
         findViewById<Button>(R.id.button8).setOnClickListener {
-            val intent = Intent(this, large_1::class.java)
+            val intent = Intent(this, standard_3::class.java)
             startActivity(intent)
         }
         findViewById<Button>(R.id.button9).setOnClickListener {
-            val intent = Intent(this, large_1::class.java)
+            val intent = Intent(this, standard_4::class.java)
             startActivity(intent)
         }
         findViewById<Button>(R.id.button10).setOnClickListener {
-            val intent = Intent(this, large_1::class.java)
+            val intent = Intent(this, standard_5::class.java)
             startActivity(intent)
         }
     }

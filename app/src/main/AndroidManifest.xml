@@ -28,6 +28,11 @@
         <activity android:name=".large_3"/>
         <activity android:name=".large_4"/>
         <activity android:name=".large_5"/>
+        <activity android:name=".standard_1"/>
+        <activity android:name=".standard_2"/>
+        <activity android:name=".standard_3"/>
+        <activity android:name=".standard_4"/>
+        <activity android:name=".standard_5"/>
     </application>
 
 </manifest>
