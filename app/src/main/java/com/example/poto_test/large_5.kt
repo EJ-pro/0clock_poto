@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -21,7 +22,7 @@ import androidx.core.content.ContextCompat
 import java.io.IOException
 import java.io.OutputStream
 
-class large_5  : AppCompatActivity() {
+class large_5 : AppCompatActivity() {
 
     private val SELECT_PICTURE = 1
     private val REQUEST_WRITE_STORAGE = 2
@@ -29,13 +30,14 @@ class large_5  : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.large_5)
+        setContentView(R.layout.large_1)
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_WRITE_STORAGE)
         }
+        currentImageView = findViewById(R.id.photo1)
     }
 
     fun selectImage(view: android.view.View) {
@@ -46,14 +48,40 @@ class large_5  : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SELECT_PICTURE && resultCode == Activity.RESULT_OK && data != null) {
+        if (requestCode == SELECT_PICTURE && resultCode == RESULT_OK && data != null) {
             val selectedImageUri: Uri? = data.data
-            currentImageView?.let {
-                val inputStream = contentResolver.openInputStream(selectedImageUri!!)
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                it.setImageBitmap(bitmap)
+            if (selectedImageUri != null) {
+                try {
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+                    val rotatedBitmap = rotateImageIfRequired(bitmap, selectedImageUri)
+                    currentImageView?.setImageBitmap(rotatedBitmap)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
             }
         }
+    }
+
+    private fun rotateImageIfRequired(img: Bitmap, selectedImage: Uri): Bitmap {
+        val input = contentResolver.openInputStream(selectedImage)
+        val exif = androidx.exifinterface.media.ExifInterface(input!!)
+
+        val orientation = exif.getAttributeInt(
+            androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION,
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_NORMAL
+        )
+
+        return when (orientation) {
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_90 -> rotateImage(img, 90)
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_180 -> rotateImage(img, 180)
+            androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(img, 270)
+            else -> img
+        }
+    }
+    private fun rotateImage(img: Bitmap, degree: Int): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(degree.toFloat())
+        return Bitmap.createBitmap(img, 0, 0, img.width, img.height, matrix, true)
     }
 
     fun downloadFrame(view: android.view.View) {
@@ -63,7 +91,7 @@ class large_5  : AppCompatActivity() {
     }
 
     private fun getBitmapFromView(view: android.view.View): Bitmap {
-        val scaleFactor = 4 // 해상도를 높일 비율
+        val scaleFactor = 5 // 해상도를 높일 비율
         val width = view.width * scaleFactor
         val height = view.height * scaleFactor
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
