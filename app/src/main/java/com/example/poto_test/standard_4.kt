@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -37,6 +38,45 @@ class standard_4  : AppCompatActivity() {
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_WRITE_STORAGE)
         }
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == SELECT_PICTURE && resultCode == Activity.RESULT_OK && data != null) {
+            val selectedImageUri: Uri? = data.data
+            val inputStream = contentResolver.openInputStream(selectedImageUri!!)
+            var bitmap = BitmapFactory.decodeStream(inputStream)
+
+            // Determine which ImageView initiated the select image action
+            when (currentImageView?.id) {
+                R.id.photo1_1 -> {
+                    bitmap = rotateImage(bitmap, -90) // Rotate left 90 degrees
+                }
+
+                R.id.photo1_2 -> {
+                    bitmap = rotateImage(bitmap, -90) // Rotate left 90 degrees
+                }
+
+                R.id.photo1_3 -> {
+                    bitmap = rotateImage(bitmap, -90) // Rotate left 90 degrees
+                }
+                R.id.photo2_1 -> {
+                    bitmap = rotateImage(bitmap, 90) // Rotate right 90 degrees
+                }
+                R.id.photo2_2 -> {
+                    bitmap = rotateImage(bitmap, 90) // Rotate right 90 degrees
+                }
+                R.id.photo2_3 -> {
+                    bitmap = rotateImage(bitmap, 90) // Rotate right 90 degrees
+                }
+            }
+            currentImageView?.setImageBitmap(bitmap)
+        }
+    }
+
+    private fun rotateImage(source: Bitmap, angle: Int): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(angle.toFloat())
+        return Bitmap.createBitmap(source, 0, 0, source.width, source.height, matrix, true)
+    }
 
     fun selectImage(view: android.view.View) {
         currentImageView = view as ImageView
@@ -44,17 +84,6 @@ class standard_4  : AppCompatActivity() {
         startActivityForResult(intent, SELECT_PICTURE)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SELECT_PICTURE && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
-            currentImageView?.let {
-                val inputStream = contentResolver.openInputStream(selectedImageUri!!)
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                it.setImageBitmap(bitmap)
-            }
-        }
-    }
 
     fun downloadFrame(view: android.view.View) {
         val photoFrame = findViewById<LinearLayout>(R.id.photo_frame)
