@@ -6,13 +6,24 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <LinearLayout
-        android:id="@+id/photo_frame"
-        android:layout_width="766px"
-        android:layout_height="1135px"
-        android:orientation="vertical"
-        android:background="#111">
 
+
+        <LinearLayout
+            android:id="@+id/photo_frame"
+            android:layout_width="800px"
+            android:layout_height="1200px"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="#000000">
+
+            <LinearLayout
+                android:layout_width="766px"
+                android:layout_height="1135px"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="#000000">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -118,11 +129,11 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/standard_1"/>
+                android:src="@drawable/standaard_1"/>
 
             <View
                 android:id="@+id/vertical_line"
-                android:layout_width="0.5dp"
+                android:layout_width="0.01dp"
                 android:layout_height="0dp"
                 android:background="#FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +143,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-
+        </LinearLayout>
     <Button
         android:id="@+id/download_button"
         android:layout_width="wrap_content"

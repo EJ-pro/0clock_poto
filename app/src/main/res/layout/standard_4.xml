@@ -6,21 +6,31 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <LinearLayout
-        android:id="@+id/photo_frame"
-        android:layout_width="766px"
-        android:layout_height="1135px"
-        android:orientation="vertical"
-        android:background="#F9F6EC">
 
+        <LinearLayout
+            android:id="@+id/photo_frame"
+            android:layout_width="800px"
+            android:layout_height="1200px"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="#F9F6EC">
+
+            <LinearLayout
+                android:layout_width="766px"
+                android:layout_height="1135px"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="#F9F6EC">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/photo1"
-                android:layout_width="129dp"
-                android:layout_height="172dp"
+                android:id="@+id/photo1_1"
+                android:layout_width="96dp"
+                android:layout_height="128dp"
                 android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
@@ -28,15 +38,15 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
+                app:layout_constraintHorizontal_bias="0.157"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.965" />
+                app:layout_constraintVertical_bias="0.039" />
 
             <ImageView
-                android:id="@+id/photo3"
-                android:layout_width="129dp"
-                android:layout_height="172dp"
+                android:id="@+id/photo1_2"
+                android:layout_width="96dp"
+                android:layout_height="128dp"
                 android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
@@ -44,30 +54,14 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.035" />
-
-            <ImageView
-                android:id="@+id/photo2"
-                android:layout_width="129dp"
-                android:layout_height="172dp"
-                android:adjustViewBounds="true"
-                android:background="#CCC"
-                android:onClick="selectImage"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="3:4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
+                app:layout_constraintHorizontal_bias="0.157"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/photo12"
-                android:layout_width="129dp"
-                android:layout_height="172dp"
+                android:id="@+id/photo1_3"
+                android:layout_width="96dp"
+                android:layout_height="128dp"
                 android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
@@ -75,15 +69,31 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.895"
+                app:layout_constraintHorizontal_bias="0.157"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.96" />
+
+            <ImageView
+                android:id="@+id/photo2_1"
+                android:layout_width="96dp"
+                android:layout_height="128dp"
+                android:adjustViewBounds="true"
+                android:background="#CCC"
+                android:onClick="selectImage"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="3:4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.843"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.034" />
 
             <ImageView
-                android:id="@+id/photo13"
-                android:layout_width="129dp"
-                android:layout_height="172dp"
+                android:id="@+id/photo2_2"
+                android:layout_width="96dp"
+                android:layout_height="128dp"
                 android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
@@ -91,14 +101,14 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.895"
+                app:layout_constraintHorizontal_bias="0.843"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/photo14"
-                android:layout_width="129dp"
-                android:layout_height="172dp"
+                android:id="@+id/photo2_3"
+                android:layout_width="96dp"
+                android:layout_height="128dp"
                 android:adjustViewBounds="true"
                 android:background="#CCC"
                 android:onClick="selectImage"
@@ -106,15 +116,15 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="3:4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.895"
+                app:layout_constraintHorizontal_bias="0.843"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.963" />
 
             <ImageView
-                android:layout_width="377dp"
-                android:layout_height="554dp"
-                android:src="@drawable/standard_4" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/standard_4"/>
             <View
                 android:id="@+id/vertical_line"
                 android:layout_width="0.5dp"
@@ -125,7 +135,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+            </LinearLayout>
     </LinearLayout>
 
     <Button
