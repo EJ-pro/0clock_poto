@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center">
 
     <LinearLayout
         android:id="@+id/photo_frame"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_width="766px"
+        android:layout_height="1135px"
         android:orientation="vertical"
         android:background="#3788F1">
 

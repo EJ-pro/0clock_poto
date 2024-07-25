@@ -91,7 +91,7 @@ class large_1 : AppCompatActivity() {
     }
 
     private fun getBitmapFromView(view: android.view.View): Bitmap {
-        val scaleFactor = 4 // 해상도를 높일 비율
+        val scaleFactor = 2 // 해상도를 높일 비율
         val width = view.width * scaleFactor
         val height = view.height * scaleFactor
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
